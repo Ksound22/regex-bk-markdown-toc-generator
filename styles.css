@@ -83,3 +83,9 @@ input[type='submit']:hover {
   background-color: #ffadad;
   color: black;
 }
+
+@media screen and (max-width: 768px) {
+  textarea {
+    width: 17rem;
+  }
+}
