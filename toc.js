@@ -1,5 +1,6 @@
 const form = document.querySelector('form');
 const generatedToc = document.querySelector('#generated-toc');
+const alert = document.querySelector('.alert');
 
 // Regular expressions to remove spaces and special characters
 const spaceRe = /\s+/g;
@@ -12,7 +13,16 @@ function generateToc(e) {
   const headingTexts = document.querySelector('#toc').value;
 
   if (headingTexts === '') {
-    alert('Please enter some heading texts');
+    // Alert the user to enter heading texts
+    alert.style.display = 'block';
+
+    // hide the alert after 3 seconds
+    setTimeout(() => {
+      alert.style.display = 'none';
+    }, 3000);
+
+    // hide generated table of content (if any) since the user is trying to paste in another one
+    generatedToc.style.display = 'none';
     return;
   }
 
@@ -23,27 +33,30 @@ function generateToc(e) {
   let tocContent = '';
 
   // Loop through each line and generate the table of content items
-  headingLines.forEach((line) => {
+  headingLines.forEach((headingLine) => {
     // Remove any leading and/or trailing spaces from the line
-    line = line.trim();
+    headingLine = headingLine.trim();
 
     // skip empty lines
-    if (line === '') {
+    if (headingLine === '') {
       return;
     }
 
     // Generate the TOC link based on the heading text(s)
-    const anchorLink = line
+    const markdownLink = headingLine
       .replace(spaceRe, '') // replace spaces with an empty string
       .replace(symRe, '') // replace special characters (symbols)
       .toLowerCase(); // convert the link texts to lowercase characters
 
     // Create the table of content item and append it to the tocContent variable
-    tocContent += `<p>• [${line}](##${anchorLink})</p>`;
+    tocContent += `<p>• [${headingLine}](##${markdownLink})</p>`;
   });
 
   // Insert the generated table of content into the "generated-toc" div element
   generatedToc.innerHTML = tocContent;
+
+  // hide alert since there's currently no error at this point
+  alert.style.display = 'none';
 
   // show the "generated-toc" div
   generatedToc.style.display = 'block';
