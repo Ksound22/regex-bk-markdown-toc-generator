@@ -80,12 +80,16 @@ input[type='submit']:hover {
   text-align: center;
   padding: 1rem 0;
   border-radius: 2px;
-  background-color: #ffadad;
+  background-color: #eb7189;
   color: black;
 }
 
 @media screen and (max-width: 768px) {
   textarea {
     width: 16rem;
+  }
+
+  .alert {
+    max-width: 50%;
   }
 }
