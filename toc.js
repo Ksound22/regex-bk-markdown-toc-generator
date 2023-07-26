@@ -49,7 +49,7 @@ function generateToc(e) {
       .toLowerCase(); // convert the link texts to lowercase characters
 
     // Create the table of content item and append it to the tocContent variable
-    tocContent += `<p>• [${headingLine}](##${markdownLink})</p>`;
+    tocContent += `<p>• [${headingLine}](#${markdownLink})</p>`;
   });
 
   // Insert the generated table of content into the "generated-toc" div element
