@@ -1,13 +1,17 @@
 const form = document.querySelector('form');
 const generatedToc = document.querySelector('#generated-toc');
 const alert = document.querySelector('.alert');
+const loading = document.querySelector('.loading');
 
 // Regular expressions to remove spaces and special characters
 const spaceRe = /\s+/g;
-const symRe = /[°?+*$∞^%$#@!.,©:&;"=%'_\[\]–\/\\<>|÷™®)£(}{€¥¢—“”‘•~]/g;
+const symRe = /[°?+*$∞^%$#@!.,`©:&;"=%'_\[\]–\/\\<>|÷™®)£(}{€¥¢—“”‘•~]/g;
 
 function generateToc(e) {
   e.preventDefault();
+
+  // show loading state
+  loading.style.display = 'block';
 
   // Get the heading texts from the textarea
   const headingTexts = document.querySelector('#toc').value;
@@ -23,6 +27,8 @@ function generateToc(e) {
 
     // hide generated table of content (if any) since the user is trying to paste in another one
     generatedToc.style.display = 'none';
+    loading.style.display = 'none';
+
     return;
   }
 
@@ -49,7 +55,7 @@ function generateToc(e) {
       .toLowerCase(); // convert the link texts to lowercase characters
 
     // Create the table of content item and append it to the tocContent variable
-    tocContent += `<p>• [${headingLine}](#${markdownLink})</p>`;
+    tocContent += `<p>* [${headingLine}](#${markdownLink})</p>`;
   });
 
   // Insert the generated table of content into the "generated-toc" div element
@@ -63,6 +69,8 @@ function generateToc(e) {
 
   // clear the heading texts in the text area
   document.querySelector('#toc').value = '';
+
+  loading.style.display = 'none';
 }
 
 // Add a submit event to the form
@@ -75,6 +83,6 @@ Why you should Learn to C$ode in Java?
 
 Why you should get into Web3!
 Don't Attach Question Mark(?) to Hows!
-Stop Scaring Newbies!
+Stop S`caring` Newbies!
 Why are you too cold&
 */

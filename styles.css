@@ -6,6 +6,10 @@
   box-sizing: border-box;
 }
 
+a {
+  color: #fff;
+}
+
 body {
   font-family: 'Poppins' sans-serif;
   background-color: #3b3b4f;
@@ -61,6 +65,13 @@ input[type='submit']:hover {
   background-color: #00471b;
 }
 
+.loading {
+  display: none;
+  background-color: #00471b;
+  padding: 10px;
+  text-align: center;
+}
+
 #generated-toc {
   max-width: 60%;
   margin: 1rem auto;
@@ -82,6 +93,13 @@ input[type='submit']:hover {
   border-radius: 2px;
   background-color: #eb7189;
   color: black;
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: auto;
 }
 
 @media screen and (max-width: 768px) {
