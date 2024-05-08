@@ -2,6 +2,11 @@ const form = document.querySelector('form');
 const generatedToc = document.querySelector('#generated-toc');
 const alert = document.querySelector('.alert');
 const loading = document.querySelector('.loading');
+const copyYear = document.getElementById("copy-year")
+
+const currentYear = new Date().getFullYear()
+
+copyYear.innerText = "©" + currentYear;
 
 // Regular expressions to remove spaces and special characters
 const spaceRe = /\s+/g;
