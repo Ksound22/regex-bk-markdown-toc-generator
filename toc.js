@@ -2,7 +2,7 @@ const form = document.querySelector('form');
 const generatedToc = document.querySelector('#generated-toc');
 const alert = document.querySelector('.alert');
 const loading = document.querySelector('.loading');
-const copyYear = document.getElementById("copy-year")
+const copyYear = document.getElementById("year-copy")
 
 const currentYear = new Date().getFullYear()
 
