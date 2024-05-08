@@ -5,7 +5,7 @@ const loading = document.querySelector('.loading');
 
 // Regular expressions to remove spaces and special characters
 const spaceRe = /\s+/g;
-const symRe = /[°?+*$∞^%$#@!.,`©:&;"=%'_\[\]–\/\\<>|÷™®)£(}{€¥¢—“”‘•~]/g;
+const symRe = /[°?+*$∞^%$#@!.,`©:&;"=%'\[\]–\/\\<>|÷™®)£(}{€¥¢—“”‘•~]/g;
 
 function generateToc(e) {
   e.preventDefault();
