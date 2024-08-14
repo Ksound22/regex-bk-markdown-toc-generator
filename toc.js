@@ -2,11 +2,11 @@ const form = document.querySelector('form');
 const generatedToc = document.querySelector('#generated-toc');
 const alert = document.querySelector('.alert');
 const loading = document.querySelector('.loading');
-const copyYear = document.getElementById("year-copy")
+const copyYear = document.getElementById('year-copy');
 
-const currentYear = new Date().getFullYear()
+const currentYear = new Date().getFullYear();
 
-copyYear.innerText = "©" + currentYear;
+copyYear.innerText = '©' + currentYear;
 
 // Regular expressions to remove spaces and special characters
 const spaceRe = /\s+/g;
@@ -55,12 +55,13 @@ function generateToc(e) {
 
     // Generate the TOC link based on the heading text(s)
     const markdownLink = headingLine
-      .replace(spaceRe, '') // replace spaces with an empty string
+      .replace(spaceRe, '-') // replace spaces with an hyphen
       .replace(symRe, '') // replace special characters (symbols)
       .toLowerCase(); // convert the link texts to lowercase characters
 
     // Create the table of content item and append it to the tocContent variable
     tocContent += `<p>* [${headingLine}](#${markdownLink})</p>`;
+    console.log(tocContent);
   });
 
   // Insert the generated table of content into the "generated-toc" div element
